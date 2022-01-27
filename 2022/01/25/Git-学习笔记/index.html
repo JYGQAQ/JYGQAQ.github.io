@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/git.jpg">
 <meta property="article:published_time" content="2022-01-25T07:46:25.000Z">
-<meta property="article:modified_time" content="2022-01-25T08:02:04.000Z">
+<meta property="article:modified_time" content="2022-01-27T14:54:32.047Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
@@ -349,7 +349,7 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell">Administrator@DESKTOP-4054V76 MINGW32 /e/gitLearn (master)<br><span class="hljs-meta">$</span><span class="bash"> git status</span><br>On branch master<br><br>No commits yet<br><br>Untracked files:<br>  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)<br><br>        newfile.txt<br><br>nothing added to commit but untracked files present (use &quot;git add&quot; to track)<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/image-20220121000221864.png" srcset="/img/loading.gif" lazyload alt="image-20220121000221864"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/image-20220121000221864.png" srcset="/img/loading.gif" lazyload></p>
 <p>此处，有一个未被追踪的文件<code>newfile.txt</code>（<strong>被标红</strong>），意思是需要<code>git add</code>来提交到暂存区追踪。</p>
 <p>有被<strong>标红</strong>的文件，说明该文件<strong>新创建或者和相对于暂存区有更改</strong>需要被<code>git add</code>提交到暂存区追踪。</p>
 <h3 id="4-添加到暂存区"><a href="#4-添加到暂存区" class="headerlink" title="4.添加到暂存区"></a>4.添加到暂存区</h3><p>基本语法：<code>git add 文件名</code> 或者 <code>git add .</code>代表添加所有有更改的文件到暂存区</p>
@@ -357,7 +357,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add newfile.txt<br>或者<br>git add .<br></code></pre></td></tr></table></figure>
 
 <p>接下来使用<code>git status</code>查看本地库状态</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/e666e7de96c9def5042f595dd04805e.png" srcset="/img/loading.gif" lazyload alt="e666e7de96c9def5042f595dd04805e"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/e666e7de96c9def5042f595dd04805e.png" srcset="/img/loading.gif" lazyload></p>
 <p>注意上面的提示：</p>
 <p>可以使用<code>git rm --cached newfile.txt</code>来从索引中删除文件。但是本地文件还存在， 只是不希望这个文件被版本控制，意思是从暂存区中删除<code>newfile.txt</code>。</p>
 <p>若使用<code>git rm newfile.txt</code>同时从工作区和索引中删除文件。即本地的文件也被删除了。</p>
@@ -370,15 +370,15 @@
 <h3 id="5-提交本地库"><a href="#5-提交本地库" class="headerlink" title="5. 提交本地库"></a>5. 提交本地库</h3><p>基本语法：<code>git commit -m &quot;日志信息&quot; 文件名</code> 或者 <code>git commit -m &quot;message&quot;</code>提交所有暂存区内容到本地库。</p>
 <p>git commit 主要是将暂存区里的改动给提交到本地的版本库。每次使用git commit 命令我们都会在本地版本库生成一个40位的哈希值，这个哈希值也叫<strong>commit-id</strong>，commit-id在版本回退的时候是非常有用的，它相当于一个快照,可以在未来的任何时候通过与git reset的组合命令回到这里。</p>
 <p>案例实操：</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/bbc4110ceb47c9dba34e612aef1167f.png" srcset="/img/loading.gif" lazyload alt="bbc4110ceb47c9dba34e612aef1167f"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/bbc4110ceb47c9dba34e612aef1167f.png" srcset="/img/loading.gif" lazyload></p>
 <p>查看本地库状态：</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/139f25276d55d99e9197b2570a65bff.png" srcset="/img/loading.gif" lazyload alt="139f25276d55d99e9197b2570a65bff"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/139f25276d55d99e9197b2570a65bff.png" srcset="/img/loading.gif" lazyload></p>
 <p>发现没有<strong>绿名</strong>和<strong>红名</strong>文件被标注，说明没有文件需要被<strong>commit</strong>和<strong>add</strong>。</p>
 <h4 id="5-1-查看本地库版本信息"><a href="#5-1-查看本地库版本信息" class="headerlink" title="5.1 查看本地库版本信息"></a>5.1 查看本地库版本信息</h4><p>查看本地库版本信息，使用<code>git reflog</code>查看引用日志信息。</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/a09103f44b288329021af4dd79da2df.png" srcset="/img/loading.gif" lazyload alt="a09103f44b288329021af4dd79da2df"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/a09103f44b288329021af4dd79da2df.png" srcset="/img/loading.gif" lazyload></p>
 <p>说明：开头是的哈希值是<strong>commit-id</strong>，最后是<strong>commit</strong>的message信息。<code>HEAD</code>是指针，指向了<code>master</code>分支。</p>
 <p>查看本地库版本的详细信息，使用<code>git log</code>。</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/dba0007b3c4df902e87585dd7b38769.png" srcset="/img/loading.gif" lazyload alt="dba0007b3c4df902e87585dd7b38769"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/dba0007b3c4df902e87585dd7b38769.png" srcset="/img/loading.gif" lazyload></p>
 <p>说明：第一行是<strong>commit-id</strong>的准确值，第二行是提交者的用户签名，第三行是提交时间，第四行是<code>commit</code>的<code>message</code>。</p>
 <h4 id="5-2-Commit-Message-规范"><a href="#5-2-Commit-Message-规范" class="headerlink" title="5.2 Commit Message 规范"></a>5.2 Commit Message 规范</h4><p><code>git commit</code>命令要求编写<code>commit message</code>，不然无法提交，关于<code>commit message</code>的编写，我们往往容易忽略规范，整体来讲，<code>commit message</code>应该清晰简洁，能够提现本次提交目的。</p>
 <p>关于<code>commit message</code>的编写规范，社区有很多种，<code>Angular规范</code>是目前使用最广的写法，本文就简单介绍一下。</p>
@@ -424,7 +424,7 @@
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Closes</span> #<span class="hljs-number">123</span>, #<span class="hljs-number">234</span>, #<span class="hljs-number">345</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="6-修改文件"><a href="#6-修改文件" class="headerlink" title="6. 修改文件"></a>6. 修改文件</h3><p>修改 <code>newfile.txt</code> 内容，<code>git status</code>会提示该文件修改过（会被<strong>标红</strong>，跟暂存区相比有更改），如下：</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/8bf87fdbd981c5d3e8d12843be4647e.png" srcset="/img/loading.gif" lazyload alt="8bf87fdbd981c5d3e8d12843be4647e"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/8bf87fdbd981c5d3e8d12843be4647e.png" srcset="/img/loading.gif" lazyload></p>
 <p><code>git checkout -- file</code>是指根据暂存区的<code>file</code>文件来覆盖工作区的<code>file</code>文件，也就是放弃更改。</p>
 <p>需要注意的是，Git是以<strong>行</strong>来管理文件的，最小单位是行。</p>
 <h3 id="7-查看版本之间的不同"><a href="#7-查看版本之间的不同" class="headerlink" title="7. 查看版本之间的不同"></a>7. 查看版本之间的不同</h3><h4 id="7-1-比较工作区与暂存区"><a href="#7-1-比较工作区与暂存区" class="headerlink" title="7.1 比较工作区与暂存区"></a>7.1 比较工作区与暂存区</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git diff<br></code></pre></td></tr></table></figure>
@@ -464,25 +464,25 @@
 <h3 id="2-分支基本操作"><a href="#2-分支基本操作" class="headerlink" title="2. 分支基本操作"></a>2. 分支基本操作</h3><table><thead><tr><th>命令名称</th><th>作用</th></tr></thead><tbody><tr><td>git branch 分支名</td><td>创建分支</td></tr><tr><td>git branch -v</td><td>查看分支</td></tr><tr><td>git checkout 分支名</td><td>切换分支</td></tr><tr><td>git merge 分支名</td><td>把指定的分支合并到当前分支上</td></tr></tbody></table>
 
 <h4 id="2-1-查看分支"><a href="#2-1-查看分支" class="headerlink" title="2.1 查看分支"></a>2.1 查看分支</h4><p>基本语法：<code>git branch -v</code></p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/fab3df037a60224caf0f127e53de4b1.png" srcset="/img/loading.gif" lazyload alt="fab3df037a60224caf0f127e53de4b1"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/fab3df037a60224caf0f127e53de4b1.png" srcset="/img/loading.gif" lazyload></p>
 <p><code>*</code>代表当前所在的分支</p>
 <h4 id="2-2-创建分支"><a href="#2-2-创建分支" class="headerlink" title="2.2 创建分支"></a>2.2 创建分支</h4><p>基本语法：<code>git branch 分支名</code></p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/47e47992b7ff1da878bbbfe9b87559c.png" srcset="/img/loading.gif" lazyload alt="47e47992b7ff1da878bbbfe9b87559c"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/47e47992b7ff1da878bbbfe9b87559c.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>刚创建的新的分支，并将主分支 master 的内容复制了一份</strong>。</p>
 <h4 id="2-3-切换分支"><a href="#2-3-切换分支" class="headerlink" title="2.3 切换分支"></a>2.3 切换分支</h4><p>基本语法：<code>git checkout 分支名</code></p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/f6a55ec01908aa4b7a06b59b51bc26f.png" srcset="/img/loading.gif" lazyload alt="f6a55ec01908aa4b7a06b59b51bc26f"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/f6a55ec01908aa4b7a06b59b51bc26f.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="3-合并分支-正常合并"><a href="#3-合并分支-正常合并" class="headerlink" title="3. 合并分支 (正常合并)"></a>3. 合并分支 (正常合并)</h3><p>基本语法：<code>git merge 分支名</code></p>
 <p>将<code>分支名</code>合并到当前分支。</p>
 <p>在 master 分支上合并 hot-fix 分支（将 hot-fix 的合并到 master）。</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/1e50945d4aa000d22dfca989fc7b0d2.png" srcset="/img/loading.gif" lazyload alt="1e50945d4aa000d22dfca989fc7b0d2"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/1e50945d4aa000d22dfca989fc7b0d2.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="4-合并分支-冲突合并"><a href="#4-合并分支-冲突合并" class="headerlink" title="4. 合并分支 (冲突合并)"></a>4. 合并分支 (冲突合并)</h3><h4 id="4-1-冲突产生的原因"><a href="#4-1-冲突产生的原因" class="headerlink" title="4.1 冲突产生的原因"></a>4.1 冲突产生的原因</h4><p>并分支时，<strong>多个分支修改了同一个文件(任何地方)或者多个分支修改了同一个文件的名称</strong>（从该文件第一行开始，最先开始不同的行到最后不同的行会括起来）。 Git 无法替我们决定使用哪一个，因此，必须<strong>人为决定</strong>新代码内容。</p>
 <p>如果两个分支中分别修改了不同文件中的部分，是不会产生冲突，直接合并即可。</p>
 <h4 id="4-2-产生冲突"><a href="#4-2-产生冲突" class="headerlink" title="4.2 产生冲突"></a>4.2 产生冲突</h4><p>修改两个分支，中同一文件同一行，合并两个分支：</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/eda203702114339268b657212811c5f.png" srcset="/img/loading.gif" lazyload alt="eda203702114339268b657212811c5f"></p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/61073b71dfe7abee793f6b335747116.png" srcset="/img/loading.gif" lazyload alt="61073b71dfe7abee793f6b335747116"></p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/b9218cbf54fd3120e70da480441c654.png" srcset="/img/loading.gif" lazyload alt="b9218cbf54fd3120e70da480441c654"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/eda203702114339268b657212811c5f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/61073b71dfe7abee793f6b335747116.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/b9218cbf54fd3120e70da480441c654.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="4-3-解决冲突"><a href="#4-3-解决冲突" class="headerlink" title="4.3 解决冲突"></a>4.3 解决冲突</h4><p>编辑有冲突的文件，<strong>删除特殊符号</strong>，决定要使用的内容。随后<code>git add .</code> &amp; <code>git commit -m &quot;message&quot;</code>正式合并分支。</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/73ccf068132905eee5e42c7ab2e0514.png" srcset="/img/loading.gif" lazyload alt="73ccf068132905eee5e42c7ab2e0514"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/73ccf068132905eee5e42c7ab2e0514.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="4-4-创建分支和切换分支"><a href="#4-4-创建分支和切换分支" class="headerlink" title="4.4 创建分支和切换分支"></a>4.4 创建分支和切换分支</h4><p>master、 hot-fix 其实都是指向具体版本记录的指针。当前所在的分支，其实是由 HEAD 决定的。所以创建分支的本质就是多创建一个指针。</p>
 <ul>
 <li>  HEAD 如果指向 master，那么我们现在就在 master 分支上。</li>
@@ -508,7 +508,7 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/">GitHub 网址</a></p>
 <h3 id="1-创建远程库"><a href="#1-创建远程库" class="headerlink" title="1. 创建远程库"></a>1. 创建远程库</h3><p>登陆后，点击在网页右上角的 “+” –&gt; “New repository”，创建远程库。</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/3dfd6ad9419bfcef2635e08a5c02e86c.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/3ddd9d9b5ec3b0ab8c238ef66a183d1.png" srcset="/img/loading.gif" lazyload alt="3ddd9d9b5ec3b0ab8c238ef66a183d1"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/3ddd9d9b5ec3b0ab8c238ef66a183d1.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="1-1-远程仓库操作"><a href="#1-1-远程仓库操作" class="headerlink" title="1.1 远程仓库操作"></a>1.1 远程仓库操作</h4><table><thead><tr><th>命令名称</th><th>作用</th></tr></thead><tbody><tr><td>git remote -v</td><td>查看当前所有远程地址别名</td></tr><tr><td>git remote add 别名 远程地址</td><td>起别名</td></tr><tr><td>git push 别名 分支</td><td>推送本地分支上的内容到远程仓库</td></tr><tr><td>git clone 远程地址</td><td>将远程仓库的内容克隆到本地</td></tr><tr><td>git pull 远程库地址别名 远程分支名</td><td>将远程仓库对于分支最新内容拉下来后与 当前本地分支直接合并</td></tr></tbody></table>
 
 <h3 id="2-关联远程库"><a href="#2-关联远程库" class="headerlink" title="2. 关联远程库"></a>2. 关联远程库</h3><p><strong>基本语法</strong>：</p>
@@ -516,11 +516,11 @@
 <li>  <code>git remote -v</code> 查看当前所有远程地址别名</li>
 <li>  <code>git remote add 别名 远程地址</code></li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/682725a20f0d99a4467e2a6cda04ad2.png" srcset="/img/loading.gif" lazyload alt="682725a20f0d99a4467e2a6cda04ad2"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/682725a20f0d99a4467e2a6cda04ad2.png" srcset="/img/loading.gif" lazyload></p>
 <p>这个地址在创建完远程仓库后生成的连接 ，如图所示</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/94534c6c6ba1d748bbfcc87338e38d7.png" srcset="/img/loading.gif" lazyload alt="94534c6c6ba1d748bbfcc87338e38d7"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/94534c6c6ba1d748bbfcc87338e38d7.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="3-推送本地库到远程库"><a href="#3-推送本地库到远程库" class="headerlink" title="3. 推送本地库到远程库"></a>3. 推送本地库到远程库</h3><p>基本语法：<code>git push 别名 分支</code>  将该分支推送上去</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/7bec3b7357867896ea8f87838591b41.png" srcset="/img/loading.gif" lazyload alt="7bec3b7357867896ea8f87838591b41"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/7bec3b7357867896ea8f87838591b41.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="3-1-git-push详解"><a href="#3-1-git-push详解" class="headerlink" title="3.1 git push详解"></a>3.1 git push详解</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;<br></code></pre></td></tr></table></figure>
 
 <p>如果本地分支名与远程分支名相同，则可以省略冒号：</p>
@@ -530,16 +530,16 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git push<br></code></pre></td></tr></table></figure>
 
 <h3 id="4-拉取远程库到本地库"><a href="#4-拉取远程库到本地库" class="headerlink" title="4. 拉取远程库到本地库"></a>4. 拉取远程库到本地库</h3><p>需要注意的是，当远程库与本地库不相同时，需要先拉取远程库（如果直接push，会出错）</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/5eca728584bde973a8c9c109f26314c.png" srcset="/img/loading.gif" lazyload alt="5eca728584bde973a8c9c109f26314c"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/5eca728584bde973a8c9c109f26314c.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="4-1-git-pull详解"><a href="#4-1-git-pull详解" class="headerlink" title="4.1 git pull详解"></a>4.1 git pull详解</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/f4b96f8b373b6e9ff02775e89050c9f.png" srcset="/img/loading.gif" lazyload alt="f4b96f8b373b6e9ff02775e89050c9f"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/f4b96f8b373b6e9ff02775e89050c9f.png" srcset="/img/loading.gif" lazyload></p>
 <p>主要注意的是，<code>git pull</code>之后查看本地库状态，发现本地库是干净的，说明<code>git pull</code>会自动<code>git add .</code>和<code>git push</code></p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/110ae677e2075dabba3ba280b680768.png" srcset="/img/loading.gif" lazyload alt="110ae677e2075dabba3ba280b680768"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/110ae677e2075dabba3ba280b680768.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="5-克隆远程库到本地"><a href="#5-克隆远程库到本地" class="headerlink" title="5. 克隆远程库到本地"></a>5. 克隆远程库到本地</h3><p>基本语法：<code>git clone 远程地址</code>在远程库获取地址 URL</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/bed545d3938cde21c57c8f86ffcfffd.png" srcset="/img/loading.gif" lazyload alt="bed545d3938cde21c57c8f86ffcfffd"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/bed545d3938cde21c57c8f86ffcfffd.png" srcset="/img/loading.gif" lazyload></p>
 <p>克隆完成后，查看远程仓库别名，和分支对应情况：</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/d75f5d9b4a0889a1f2aca32b259d3c3.png" srcset="/img/loading.gif" lazyload alt="d75f5d9b4a0889a1f2aca32b259d3c3"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/d75f5d9b4a0889a1f2aca32b259d3c3.png" srcset="/img/loading.gif" lazyload></p>
 <p>clone 会做如下操作：</p>
 <ol>
 <li> 拉取代码。</li>
@@ -618,7 +618,7 @@
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/5dc609978787f3e5a83dbdf954a3e039.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="4-添加到暂存区-1"><a href="#4-添加到暂存区-1" class="headerlink" title="4. 添加到暂存区"></a>4. 添加到暂存区</h3><p>创建一个 HelloGit 类，将其添加 Git 暂存区。</p>
 <p>右键点击 HelloGit 类，选择 Git-&gt;Add。可以右键点击 HelloGit项目根目录，更大范围地添加文件到暂存区。</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/9ec5087e543611c5ac99b171277f590.png" srcset="/img/loading.gif" lazyload alt="9ec5087e543611c5ac99b171277f590"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/9ec5087e543611c5ac99b171277f590.png" srcset="/img/loading.gif" lazyload></p>
 <p>添加成功后，文件名会从红色变成绿色。</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/ec95c2b0b99d1f3a0ac8ad3291fdde50.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="5-提交至本地库"><a href="#5-提交至本地库" class="headerlink" title="5. 提交至本地库"></a>5. 提交至本地库</h3><p>右键点击 HelloGit，选择 Git-&gt;Commit Directory。</p>
@@ -639,7 +639,7 @@
 <p>创建新分支：</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/8a4a5e7cf7511d086ddac0be704e850f.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="8-切换分支"><a href="#8-切换分支" class="headerlink" title="8. 切换分支"></a>8. 切换分支</h3><p>跟<strong>创建分支</strong>步骤相似，如点击 IDEA 的右下角（它显示项目正处在那条分支），如图红圈所示部位，选择你想要切换的分支，然后 checkout：</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/6678ecf9283ace1783e83e184847a29.png" srcset="/img/loading.gif" lazyload alt="6678ecf9283ace1783e83e184847a29"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/6678ecf9283ace1783e83e184847a29.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/afbbe9a835629f522d0b02024fe2c11b.png" srcset="/img/loading.gif" lazyload></p>
 <p>或者在 log 窗口，右键点击分支，选择 checkout：</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/7ab6ab48e9b5a42009757b8b17b901f0.png" srcset="/img/loading.gif" lazyload></p>
@@ -655,10 +655,10 @@
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/53daad680bc796069dc1ce61682d4abc.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/f8fcf275169cdec742d31ce85ce20d7f.png" srcset="/img/loading.gif" lazyload></p>
 <p>切换到 master 分支，将 hot-fix 的合并到 master 分支：</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/1573ef3ec85b85c4215189d74065012.png" srcset="/img/loading.gif" lazyload alt="1573ef3ec85b85c4215189d74065012"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/1573ef3ec85b85c4215189d74065012.png" srcset="/img/loading.gif" lazyload></p>
 <p>冲突产生，需要人工解决：</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/eb3804e00dccfa2658aa33c972d8996e.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/511c531d359729b40f0850a4c9e0398.png" srcset="/img/loading.gif" lazyload alt="511c531d359729b40f0850a4c9e0398"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/511c531d359729b40f0850a4c9e0398.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/eafebea94008b4f1f0ae15f8b2092919.png" srcset="/img/loading.gif" lazyload></p>
 <p>代码冲突解决，将代码提交本地库后，如图所示：</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/15a9058f7f35112b8605cd69aaf42e35.png" srcset="/img/loading.gif" lazyload></p>
@@ -667,9 +667,9 @@
 <p>由于网络问题，会时常登陆不了：</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/3084475acd640b1adf621688462a1504.png" srcset="/img/loading.gif" lazyload></p>
 <p>解决方法：可通过 Token 登陆。</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/75ed9ef7614c18c244456c4089dfde6.png" srcset="/img/loading.gif" lazyload alt="75ed9ef7614c18c244456c4089dfde6"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/75ed9ef7614c18c244456c4089dfde6.png" srcset="/img/loading.gif" lazyload></p>
 <p>登陆 Github 网站，<strong>获取 Token</strong>，操作步骤看下图：</p>
-<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/1d162ac7e37a01549448032011f2a62.png" srcset="/img/loading.gif" lazyload alt="1d162ac7e37a01549448032011f2a62"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/1d162ac7e37a01549448032011f2a62.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/9b2489e068b004bee03a227760248edb.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/200c556f6f0b6d44c442b58d6e8bb7ea.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/81a82fb47421c0a802cd1cfad7297e43.png" srcset="/img/loading.gif" lazyload></p>
