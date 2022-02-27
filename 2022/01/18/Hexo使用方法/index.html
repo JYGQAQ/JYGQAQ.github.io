@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/v2-0729fd90233557be8f07e9a64f656c3e_ipico.png">
 <meta property="article:published_time" content="2022-01-18T15:40:16.000Z">
-<meta property="article:modified_time" content="2022-01-27T10:09:52.484Z">
+<meta property="article:modified_time" content="2022-02-27T14:28:20.168Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      2.1k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15 分钟
+      18 分钟
     </span>
   
 
@@ -264,6 +264,21 @@
 <h3 id="4-Hexo-生成"><a href="#4-Hexo-生成" class="headerlink" title="4. Hexo 生成"></a>4. Hexo 生成</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo g<br></code></pre></td></tr></table></figure>
 
 <p>hexo generate</p>
+<h3 id="5-一篇文章配置多个分类"><a href="#5-一篇文章配置多个分类" class="headerlink" title="5. 一篇文章配置多个分类"></a>5. 一篇文章配置多个分类</h3><p>下面的分类会将该分章放到 <code>Java/Servlet</code>这个分类下。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">categories:<br><span class="hljs-bullet">  -</span> Java<br><span class="hljs-bullet">  -</span> Servlet<br></code></pre></td></tr></table></figure>
+
+<p>同样的作用我们也可以这样写。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">categories</span>:<span class="hljs-meta"> [Java, Servlet]</span><br></code></pre></td></tr></table></figure>
+
+<p>上面两种方法最终效果一样，都是将文章放在了一个子分类的目录下，效果如图。</p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/12972816-cc5be43b9b70f040.png" srcset="/img/loading.gif" lazyload> </p>
+<p>如果我们的要求是将文章同时分到多个不同的分类中呢，我们应该这样：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs haml">categories:<br>  -<span class="ruby">[Java]</span><br><span class="ruby"></span>  -<span class="ruby">[Servlet]</span><br></code></pre></td></tr></table></figure>
+
+<p>这样，就可以将上面的文章分类到 <code>Java</code> 和 <code>Servlet</code> 这两个不同的目录中了。</p>
+<p>扩展一下，如果我们将其分类到 <code>Java/Servlet</code> 和 <code>Programming</code> 两个不同的目录下，我们应该如下写：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs haml">categories:<br>  -<span class="ruby">[Java, Servlet]</span><br><span class="ruby"></span>  -<span class="ruby">[Programming]</span><br></code></pre></td></tr></table></figure>
+
 <h2 id="三、将博客部署到Github上"><a href="#三、将博客部署到Github上" class="headerlink" title="三、将博客部署到Github上"></a>三、将博客部署到Github上</h2><p>将博客部署到Github上，这样不用备案也不用云服务器，比较方便。</p>
 <h3 id="1-Github上新建仓库"><a href="#1-Github上新建仓库" class="headerlink" title="1. Github上新建仓库"></a>1. Github上新建仓库</h3><p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/b39cf6827134af18affb5fbc934318e.png" srcset="/img/loading.gif" lazyload></p>
 <p>需要注意的是，这里仓库名<strong>必须</strong>是<code>用户名.github.io</code>。</p>
