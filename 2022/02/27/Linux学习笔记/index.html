@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/下载.png">
 <meta property="article:published_time" content="2022-02-27T14:12:37.000Z">
-<meta property="article:modified_time" content="2022-02-28T12:23:51.867Z">
+<meta property="article:modified_time" content="2022-02-28T12:33:35.957Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -1668,8 +1668,7 @@
 <p>案例1：编写一个shell脚本 positionPara.sh ， 在脚本中获取到命令行的各个参数信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim myshell.sh<br><br>echo 第一个参数 = $1 第二个参数 = $2<br></code></pre></td></tr></table></figure>
 
-
-<h2 id="17-6-预定义变量"><a href="#17-6-预定义变量" class="headerlink" title="17.6 预定义变量"></a>17.6 预定义变量</h2><p>基本介绍</p>
+<h3 id="17-6-预定义变量"><a href="#17-6-预定义变量" class="headerlink" title="17.6 预定义变量"></a>17.6 预定义变量</h3><p>基本介绍</p>
 <p>预定义变量就是shell设计者事先已经定义好的变量，可以直接在shell脚本中使用。</p>
 <p>基本语法</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span> （功能描述：当前进程的进程号（PID））<br><span class="hljs-symbol">$</span>! （功能描述：后台运行的最后一个进程的进程号（PID））<br><span class="hljs-symbol">$</span>？（功能描述：最后一次执行的命令的返回状态。如果这个变量的值为 <span class="hljs-number">0</span> ，证明上一个命令正确执行；如果这个变量的值为非 <span class="hljs-number">0</span> （具体是哪个数，由命令自己来决定），则证明上一个命令执行不正确了。）<br></code></pre></td></tr></table></figure>
