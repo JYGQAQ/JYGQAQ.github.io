@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20210829230656830.png">
 <meta property="article:published_time" content="2022-03-25T08:07:25.000Z">
-<meta property="article:modified_time" content="2022-03-25T09:36:55.421Z">
+<meta property="article:modified_time" content="2022-03-25T09:42:24.579Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -5264,7 +5264,7 @@
 <li><p>视图是一种<code>虚拟表</code>，本身是<code>不具有数据</code>的，占用很少的内存空间，它是 SQL 中的一个重要概念。</p>
 </li>
 <li><p><strong>视图建立在已有表的基础上</strong>, 视图赖以建立的这些表称为<strong>基表</strong>。（SELECT语句中涉及到的表）</p>
-<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20211006211206990.png" srcset="/img/loading.gif" lazyload alt="image-20211006211206990" style="zoom:67%;" /></li>
+<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20211006211206990.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></li>
 <li><p>视图的创建和删除只影响视图本身，不影响对应的基表。但是当对视图中的数据进行增加、删除和修改操作时，数据表中的数据会相应地发生变化，反之亦然。</p>
 </li>
 <li><p>向视图提供数据内容的语句为 SELECT 语句, 可以将视图理解为<strong>存储起来的</strong> <strong>SELECT</strong> <strong>语句</strong> </p>
@@ -5291,7 +5291,7 @@
 <p>查询视图：</p>
 <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> *<br><span class="hljs-keyword">FROM</span>	empvu80;<br></code></pre></td></tr></table></figure>
 
-<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1555430882363.png" srcset="/img/loading.gif" lazyload alt="1555430882363" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1555430882363.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:80%;" />
 
 <p>举例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">#确定视图中字段名的方式1：通过CREATE VIEW 起列别名<br>CREATE VIEW emp_year_salary (ename,year_salary)<br>AS <br>SELECT ename,salary*12*(1+IFNULL(commission_pct,0))<br>FROM t_employee;<br></code></pre></td></tr></table></figure>
