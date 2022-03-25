@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20210829230656830.png">
 <meta property="article:published_time" content="2022-03-25T08:07:25.000Z">
-<meta property="article:modified_time" content="2022-03-25T09:29:32.058Z">
+<meta property="article:modified_time" content="2022-03-25T09:36:55.421Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -1357,7 +1357,7 @@
 <p>再举例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt; SELECT 12 &amp; 5, 12 | 5,12 ^ 5 FROM DUAL;<br>+--------+--------+--------+<br>| 12 &amp; 5 | 12 | 5 | 12 ^ 5 |<br>+--------+--------+--------+<br>|      4 |     13 |      9 |<br>+--------+--------+--------+<br>1 row in set (0.00 sec)<br></code></pre></td></tr></table></figure>
 
-<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20211023115738415.png" srcset="/img/loading.gif" lazyload alt="image-20211023115738415" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20211023115738415.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:80%;" />
 
 <p><strong>4. 按位取反运算符</strong><br>按位取反（~）运算符将给定的值的二进制数逐位进行取反操作，即将1变为0，将0变为1。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt; SELECT 10 &amp; ~1;<br>+---------+<br>| 10 &amp; ~1 |<br>+---------+<br>|      10 |<br>+---------+<br>1 row in set (0.00 sec)<br></code></pre></td></tr></table></figure>
@@ -1535,7 +1535,7 @@
 
 <p>我们把上述多表查询中出现的问题称为：笛卡尔积的错误。</p>
 <h3 id="1-2-笛卡尔积（或交叉连接）的理解"><a href="#1-2-笛卡尔积（或交叉连接）的理解" class="headerlink" title="1.2 笛卡尔积（或交叉连接）的理解"></a>1.2 笛卡尔积（或交叉连接）的理解</h3><p>笛卡尔乘积是一个数学运算。假设我有两个集合 X 和 Y，那么 X 和 Y 的笛卡尔积就是 X 和 Y 的所有可能组合，也就是第一个对象来自于 X，第二个对象来自于 Y 的所有可能。组合的个数即为两个集合中元素个数的乘积数。</p>
-<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/302046364841977.jpg" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/302046364841977.jpg" srcset="/img/loading.gif" lazyload alt="" style="zoom:80%;" />
 
 <p>SQL92中，笛卡尔积也称为<code>交叉连接</code>，英文是 <code>CROSS JOIN</code>。在 SQL99 中也是使用 CROSS JOIN表示交叉连接。它的作用就是可以把任意表进行连接，即使这两张表不相关。在MySQL中如下情况会出现笛卡尔积：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">#查询员工姓名和所在部门名称<br>SELECT last_name,department_name FROM employees,departments;<br>SELECT last_name,department_name FROM employees CROSS JOIN departments;<br>SELECT last_name,department_name FROM employees INNER JOIN departments;<br>SELECT last_name,department_name FROM employees JOIN departments;<br></code></pre></td></tr></table></figure>
@@ -1701,11 +1701,11 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT column,... FROM table1<br>UNION [ALL]<br>SELECT column,... FROM table2<br></code></pre></td></tr></table></figure>
 
 <p><strong>UNION操作符</strong></p>
-<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554979317187.png" srcset="/img/loading.gif" lazyload alt="1554979317187" style="zoom: 67%;" />
+<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554979317187.png" srcset="/img/loading.gif" lazyload alt="" style="zoom: 67%;" />
 
 <p>UNION 操作符返回两个查询的结果集的并集，去除重复记录。</p>
 <p><strong>UNION ALL操作符</strong></p>
-<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554979343634.png" srcset="/img/loading.gif" lazyload alt="1554979343634" style="zoom: 67%;" />
+<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554979343634.png" srcset="/img/loading.gif" lazyload alt="" style="zoom: 67%;" />
 
 <p>UNION ALL操作符返回两个查询的结果集的并集。对于两个结果集的重复部分，不去重。</p>
 <blockquote>
@@ -1719,7 +1719,7 @@
 <p>举例：查询中国用户中男性的信息以及美国用户中年男性的用户信息</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT id,cname FROM t_chinamale WHERE csex=&#x27;男&#x27;<br>UNION ALL<br>SELECT id,tname FROM t_usmale WHERE tGender=&#x27;male&#x27;;<br></code></pre></td></tr></table></figure>
 
-<h2 id="5-7种SQL-JOINS的实现"><a href="#5-7种SQL-JOINS的实现" class="headerlink" title="5. 7种SQL JOINS的实现"></a>5. 7种SQL JOINS的实现</h2><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554979255233.png" srcset="/img/loading.gif" lazyload alt="1554979255233" style="zoom:80%;" />
+<h2 id="5-7种SQL-JOINS的实现"><a href="#5-7种SQL-JOINS的实现" class="headerlink" title="5. 7种SQL JOINS的实现"></a>5. 7种SQL JOINS的实现</h2><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554979255233.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:80%;" />
 
 <h3 id="5-7-1-代码实现"><a href="#5-7-1-代码实现" class="headerlink" title="5.7.1 代码实现"></a>5.7.1 代码实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">#中图：内连接 A∩B<br>SELECT employee_id,last_name,department_name<br>FROM employees e JOIN departments d<br>ON e.`department_id` = d.`department_id`;<br></code></pre></td></tr></table></figure>
 
@@ -2866,7 +2866,7 @@
 
 <h1 id="第09章-子查询"><a href="#第09章-子查询" class="headerlink" title="第09章_子查询"></a>第09章_子查询</h1><p>子查询指一个查询语句嵌套在另一个查询语句内部的查询，这个特性从MySQL 4.1开始引入。</p>
 <p>SQL 中子查询的使用大大增强了 SELECT 查询的能力，因为很多时候查询需要从结果集中获取数据，或者需要从同一个表中先计算得出一个数据结果，然后与这个数据结果（可能是某个标量，也可能是某个集合）进行比较。</p>
-<h2 id="1-需求分析与问题解决"><a href="#1-需求分析与问题解决" class="headerlink" title="1. 需求分析与问题解决"></a>1. 需求分析与问题解决</h2><h3 id="1-1-实际问题"><a href="#1-1-实际问题" class="headerlink" title="1.1 实际问题"></a>1.1 实际问题</h3><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554991034688.png" srcset="/img/loading.gif" lazyload alt="1554991034688" style="zoom:80%;" />
+<h2 id="1-需求分析与问题解决"><a href="#1-需求分析与问题解决" class="headerlink" title="1. 需求分析与问题解决"></a>1. 需求分析与问题解决</h2><h3 id="1-1-实际问题"><a href="#1-1-实际问题" class="headerlink" title="1.1 实际问题"></a>1.1 实际问题</h3><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554991034688.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:80%;" />
 
 <p>现有解决方式：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs mysql">#方式一：<br>SELECT salary<br>FROM employees<br>WHERE last_name = &#x27;Abel&#x27;;<br><br>SELECT last_name,salary<br>FROM employees<br>WHERE salary &gt; 11000;<br><br>#方式二：自连接<br>SELECT e2.last_name,e2.salary<br>FROM employees e1,employees e2<br>WHERE e1.last_name = &#x27;Abel&#x27;<br>AND e1.`salary` &lt; e2.`salary`<br></code></pre></td></tr></table></figure>
@@ -3012,7 +3012,7 @@
 <h3 id="3-2-代码示例"><a href="#3-2-代码示例" class="headerlink" title="3.2 代码示例"></a>3.2 代码示例</h3><p><strong>题目：返回其它job_id中比job_id为‘IT_PROG’部门任一工资低的员工的员工号、姓名、job_id 以及salary</strong></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992658876.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992664594.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="images/1554992668429.png" srcset="/img/loading.gif" lazyload alt="1554992668429"></p>
+<p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992668429.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>题目：返回其它job_id中比job_id为‘IT_PROG’部门所有工资都低的员工的员工号、姓名、job_id以及salary</strong></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992753654.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992759467.png" srcset="/img/loading.gif" lazyload></p>
@@ -3028,9 +3028,9 @@
 <p> <img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20211027195906773.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="4-相关子查询"><a href="#4-相关子查询" class="headerlink" title="4. 相关子查询"></a>4. 相关子查询</h2><h3 id="4-1-相关子查询执行流程"><a href="#4-1-相关子查询执行流程" class="headerlink" title="4.1 相关子查询执行流程"></a>4.1 相关子查询执行流程</h3><p>如果子查询的执行依赖于外部查询，通常情况下都是因为子查询中的表用到了外部的表，并进行了条件关联，因此每执行一次外部查询，子查询都要重新计算一次，这样的子查询就称之为<code>关联子查询</code>。<strong>相关子查询只能两层相连，不能跨层相连</strong></p>
 <p>相关子查询按照一行接一行的顺序执行，主查询的每一行都执行一次子查询。</p>
-<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992898234.png" srcset="/img/loading.gif" lazyload alt="1554992898234" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992898234.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:80%;" />
 
-<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992925281.png" srcset="/img/loading.gif" lazyload alt="1554992925281" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554992925281.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:80%;" />
 
 <p>说明：<strong>子查询中使用主查询中的列</strong></p>
 <h3 id="4-2-代码示例"><a href="#4-2-代码示例" class="headerlink" title="4.2 代码示例"></a>4.2 代码示例</h3><p><strong>题目：查询员工中工资大于本部门平均工资的员工的last_name,salary和其department_id</strong></p>
@@ -3613,7 +3613,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt; show tables;<br>+------------------+<br>| Tables_in_mytest |<br>+------------------+<br>| book1            |<br>+------------------+<br>1 row in set (0.00 sec)<br></code></pre></td></tr></table></figure>
 
 <p>从结果可以看出，数据表book1并没有被删除。</p>
-<h1 id="第11章-数据处理之增删改"><a href="#第11章-数据处理之增删改" class="headerlink" title="第11章_数据处理之增删改"></a>第11章_数据处理之增删改</h1><h2 id="1-插入数据"><a href="#1-插入数据" class="headerlink" title="1. 插入数据"></a>1. 插入数据</h2><h3 id="1-1-实际问题-1"><a href="#1-1-实际问题-1" class="headerlink" title="1.1 实际问题"></a>1.1 实际问题</h3><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1555425366064.png" srcset="/img/loading.gif" lazyload alt="1555425366064" style="zoom:80%;" />
+<h1 id="第11章-数据处理之增删改"><a href="#第11章-数据处理之增删改" class="headerlink" title="第11章_数据处理之增删改"></a>第11章_数据处理之增删改</h1><h2 id="1-插入数据"><a href="#1-插入数据" class="headerlink" title="1. 插入数据"></a>1. 插入数据</h2><h3 id="1-1-实际问题-1"><a href="#1-1-实际问题-1" class="headerlink" title="1.1 实际问题"></a>1.1 实际问题</h3><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1555425366064.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:80%;" />
 
 <p>解决方式：使用 INSERT 语句向表中插入数据。</p>
 <h3 id="1-2-方式1：VALUES的方式添加"><a href="#1-2-方式1：VALUES的方式添加" class="headerlink" title="1.2 方式1：VALUES的方式添加"></a>1.2 方式1：VALUES的方式添加</h3><p>使用这种语法一次只能向表中插入<strong>一条</strong>数据。</p>
