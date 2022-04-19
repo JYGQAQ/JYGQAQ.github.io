@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/EW1qr1.png">
 <meta property="article:published_time" content="2022-03-25T08:07:25.000Z">
-<meta property="article:modified_time" content="2022-03-25T09:44:23.724Z">
+<meta property="article:modified_time" content="2022-04-19T08:35:16.145Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      250k 字
+      251k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2081 分钟
+      2093 分钟
     </span>
   
 
@@ -1060,7 +1060,9 @@
 </li>
 <li><p>紧跟列名，也可以<strong>在列名和别名之间加入关键字AS，别名使用双引号(不要使用单引号，sql规范是单引号）</strong>，以便在别名中包含空格或特殊的字符并区分大小写。</p>
 </li>
-<li><p>AS 可以省略</p>
+<li><p>AS 可以省略】</p>
+</li>
+<li><p><strong>十分需要注意的是，MySQL对于“”的处理会使得使用列的别名的排序失效，所以起别名时尽量不要使用单引号或者双引号。这种情况的发生应该是MySQL对“”的处理问题，处理方法是可以修改别名，尽量选择不使用“”来命名，也就是尽量在别名中不要包含空格，使用下划线_来连接单词，这样可以不用引号修饰别名，从而避免掉MySQL对“”的解析出错问题。</strong></p>
 </li>
 <li><p>建议别名简短，见名知意</p>
 </li>
@@ -2772,7 +2774,11 @@
 
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554981624864.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/1554981629733.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="2-3-GROUP-BY中使用WITH-ROLLUP"><a href="#2-3-GROUP-BY中使用WITH-ROLLUP" class="headerlink" title="2.3 GROUP BY中使用WITH ROLLUP"></a>2.3 GROUP BY中使用WITH ROLLUP</h3><p>使用<code>WITH ROLLUP</code>关键字之后，在所有查询出的分组记录之后增加一条记录，该记录计算查询出的所有记录的聚合函数，即统计记录数量。</p>
+<h3 id="2-3-GROUP-BY中使用WITH-ROLLUP"><a href="#2-3-GROUP-BY中使用WITH-ROLLUP" class="headerlink" title="2.3 GROUP BY中使用WITH ROLLUP"></a>2.3 GROUP BY中使用WITH ROLLUP</h3><p>使用<code>WITH ROLLUP</code>关键字之后，在所有查询出的分组记录之后增加一条记录，该记录计算查询出的所有记录的聚合函数，即统计记录数量。<strong>即将每组的聚合结果进行求和，方便查看统计结果。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt; SELECT year, country, product, SUM(profit) AS profit<br>       FROM sales<br>       GROUP BY year, country, product;<br>+------+---------+------------+--------+<br>| year | country | product    | profit |<br>+------+---------+------------+--------+<br>| 2000 | Finland | Computer   |   1500 |<br>| 2000 | Finland | Phone      |    100 |<br>| 2000 | India   | Calculator |    150 |<br>| 2000 | India   | Computer   |   1200 |<br>| 2000 | USA     | Calculator |     75 |<br>| 2000 | USA     | Computer   |   1500 |<br>| 2001 | Finland | Phone      |     10 |<br>| 2001 | USA     | Calculator |     50 |<br>| 2001 | USA     | Computer   |   2700 |<br>| 2001 | USA     | TV         |    250 |<br>+------+---------+------------+--------+<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt; SELECT year, country, product, SUM(profit) AS profit<br>       FROM sales<br>       GROUP BY year, country, product WITH ROLLUP;<br>+------+---------+------------+--------+<br>| year | country | product    | profit |<br>+------+---------+------------+--------+<br>| 2000 | Finland | Computer   |   1500 |<br>| 2000 | Finland | Phone      |    100 |<br>| 2000 | Finland | NULL       |   1600 |<br>| 2000 | India   | Calculator |    150 |<br>| 2000 | India   | Computer   |   1200 |<br>| 2000 | India   | NULL       |   1350 |<br>| 2000 | USA     | Calculator |     75 |<br>| 2000 | USA     | Computer   |   1500 |<br>| 2000 | USA     | NULL       |   1575 |<br>| 2000 | NULL    | NULL       |   4525 |<br>| 2001 | Finland | Phone      |     10 |<br>| 2001 | Finland | NULL       |     10 |<br>| 2001 | USA     | Calculator |     50 |<br>| 2001 | USA     | Computer   |   2700 |<br>| 2001 | USA     | TV         |    250 |<br>| 2001 | USA     | NULL       |   3000 |<br>| 2001 | NULL    | NULL       |   3010 |<br>| NULL | NULL    | NULL       |   7535 |<br>+------+---------+------------+--------+<br></code></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT department_id,AVG(salary)<br>FROM employees<br>WHERE department_id &gt; 80<br>GROUP BY department_id WITH ROLLUP;<br></code></pre></td></tr></table></figure>
 
 <blockquote>
@@ -3450,7 +3456,8 @@
 <h3 id="3-4-查看数据表属性"><a href="#3-4-查看数据表属性" class="headerlink" title="3.4 查看数据表属性"></a>3.4 查看数据表属性</h3><p>语法格式如下:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">TABLE</span> STATUS <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;表名&#x27;</span>;   #以表格形式显示<br>或者<br><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">TABLE</span> STATUS <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;表名&#x27;</span>\G  #以行形式显示<br></code></pre></td></tr></table></figure>
 
-
+<h3 id="3-5-修改表的字符集"><a href="#3-5-修改表的字符集" class="headerlink" title="3.5 修改表的字符集"></a>3.5 修改表的字符集</h3><p>语法格式如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> t_emp <span class="hljs-keyword">convert</span> <span class="hljs-keyword">to</span> <span class="hljs-type">character</span> <span class="hljs-keyword">set</span> <span class="hljs-string">&#x27;utf8&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
 <h2 id="4-修改表"><a href="#4-修改表" class="headerlink" title="4. 修改表"></a>4. 修改表</h2><p>修改表指的是修改数据库中已经存在的数据表的结构。</p>
 <p><strong>使用 ALTER TABLE 语句可以实现：</strong></p>

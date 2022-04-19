@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/下载.png">
 <meta property="article:published_time" content="2022-02-27T14:12:37.000Z">
-<meta property="article:modified_time" content="2022-02-28T12:33:35.957Z">
+<meta property="article:modified_time" content="2022-04-04T14:05:36.413Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -357,7 +357,7 @@
 <h4 id="6-2-3-命令行模式"><a href="#6-2-3-命令行模式" class="headerlink" title="6.2.3 命令行模式"></a>6.2.3 命令行模式</h4><p>在这个模式当中，可以提供你相关指令，完成读取、存盘、替换、离开 vim 、显示行号等的动作则是在此模式中达成的！</p>
 <h3 id="6-4-Vi和Vim三种模式的相互转化图"><a href="#6-4-Vi和Vim三种模式的相互转化图" class="headerlink" title="6.4 Vi和Vim三种模式的相互转化图"></a>6.4 Vi和Vim三种模式的相互转化图</h3><p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20220221212631089.png" srcset="/img/loading.gif" lazyload alt="Vi和Vim三种模式的互相转换图"></p>
 <h3 id="6-5-Vi和Vim的快捷键键盘一览图"><a href="#6-5-Vi和Vim的快捷键键盘一览图" class="headerlink" title="6.5 Vi和Vim的快捷键键盘一览图"></a>6.5 Vi和Vim的快捷键键盘一览图</h3><p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/uPic/image-20220221213558671.png" srcset="/img/loading.gif" lazyload alt="Vi和Vim的快捷键键盘一览图"></p>
-<p>Vi和Vim的快键键包罗万象，遇到具体需求可以查看<a target="_blank" rel="noopener" href="https://vim.rtorr.com/lang/zh_cn">Vim Cheat Sheet</a></p>
+<p>Vi和Vim的快键键包罗万象，遇到具体需求可以查看<a target="_blank" rel="noopener" href="https://vim.rtorr.com/lang/zh_cn">Vim Cheat Sheet</a>或者在linux命令行输入<code>vimtutor</code>查看vim官方教程。</p>
 <h2 id="七、关机、重启和用户登录注销"><a href="#七、关机、重启和用户登录注销" class="headerlink" title="七、关机、重启和用户登录注销"></a>七、关机、重启和用户登录注销</h2><h3 id="7-1-关机-amp-重启命令"><a href="#7-1-关机-amp-重启命令" class="headerlink" title="7.1 关机&amp;重启命令"></a>7.1 关机&amp;重启命令</h3><figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ldif"><span class="hljs-attribute">shutdown      </span>: 相当于 shutdown -h 1<br><span class="hljs-attribute">shutdown-h now</span>: 表示立即关机<br><span class="hljs-attribute">shutdown-h 1  </span>: 表示 1 分钟后关机<br><span class="hljs-attribute">shutdown-r now</span>: 立即重启<br><span class="hljs-attribute">halt          </span>: 效果等价于关机<br><span class="hljs-attribute">reboot        </span>: 就是重启系统。<br><span class="hljs-attribute">sync          :把内存的数据同步到磁盘</span><br></code></pre></td></tr></table></figure>
 <p>注意细节：</p>
 <p>1.当我们关机或者重启时，都应该先执行以下sync指令，把内存的数据写入磁盘，防止数据丢失。</p>
