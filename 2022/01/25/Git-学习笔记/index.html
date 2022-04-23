@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/git.jpg">
 <meta property="article:published_time" content="2022-01-25T07:46:25.000Z">
-<meta property="article:modified_time" content="2022-02-28T12:56:00.868Z">
+<meta property="article:modified_time" content="2022-04-23T09:12:38.372Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      18k 字
+      20k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      151 分钟
+      166 分钟
     </span>
   
 
@@ -534,9 +534,29 @@
 <h4 id="4-1-git-pull详解"><a href="#4-1-git-pull详解" class="headerlink" title="4.1 git pull详解"></a>4.1 git pull详解</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/f4b96f8b373b6e9ff02775e89050c9f.png" srcset="/img/loading.gif" lazyload></p>
-<p>主要注意的是，<code>git pull</code>之后查看本地库状态，发现本地库是干净的，说明<code>git pull</code>会自动<code>git add .</code>和<code>git push</code></p>
+<p>主要注意的是，<code>git pull</code>之后查看本地库状态，发现本地库是干净的，说明<code>git pull</code>会自动<code>git add .</code>和<code>git commit</code></p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/110ae677e2075dabba3ba280b680768.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="4-2-日常提交代码到远程库的流程"><a href="#4-2-日常提交代码到远程库的流程" class="headerlink" title="4.2 日常提交代码到远程库的流程"></a>4.2 日常提交代码到远程库的流程</h4><p>日常提交代码到远程库的流程如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add -A           #需要添加到版本库中的文件 -A 就代表着所有文件(除开了 .gitignore忽略掉的文件)<br>git commit -m &#x27;本次提交的备注&#x27;<br>git pull            #将远程的库和本地的库版本同步一下,因为远程库可能发生了修改(多人合作开发时)<br>git push  <br></code></pre></td></tr></table></figure>
+
+<p>这样操作的前提是本地远程都是同一个分支上</p>
+<h4 id="4-3-为什么在git-push前需要先git-pull呢？"><a href="#4-3-为什么在git-push前需要先git-pull呢？" class="headerlink" title="4.3 为什么在git push前需要先git pull呢？"></a>4.3 为什么在git push前需要先git pull呢？</h4><ol>
+<li>本地和远程的关系相当于两个分支,你感觉一样是因为你<code>git pull</code> 的时候已经自动给绑定好对应关系了, set-upstream..balbala</li>
+<li>你远程新建了一个分支拉到本地的道理是一样的,属于复制了一份,但是本地分支和远程分支已经是两个东西了</li>
+<li>本地分支属于本地仓库里,是包含关系,一个仓库里可以有很多分支, 如果是 tag 的话可以分离出独立的仓库</li>
+<li>肯定不会全量推送到远程的,是通过对比 commit 的记录,如果本地高于远程就直接把多出来的<code>commit</code> 给怼上去,如果本地的这几个 <code>commit</code> 和远程的 <code>commit</code> 有冲突的部分就<code>merge</code>,然后根据提交时间排序再新建一个merge 的 commit 记录再怼上去</li>
+<li>这个先 commit 再 pull 再 push 的情况就是为了应对多人合并开发的情况,<ol>
+<li><code>commit</code> 是为了告诉 git 我这次提交改了哪些东西,不然你只是改了但是 git 不知道你改了,也就无从判断比较;</li>
+<li><code>pull</code>是为了本地 commit 和远程commit 的对比记录,git 是按照文件的行数操作进行对比的,如果同时操作了某文件的同一行那么就会产生冲突,git 也会把这个冲突给标记出来,这个时候就需要先把和你冲突的那个人拉过来问问保留谁的代码,然后在 <code>git add &amp;&amp; git commit &amp;&amp; git pull</code> 这三连,再次 pull 一次是为了防止再你们协商的时候另一个人给又提交了一版东西,如果真发生了那流程重复一遍,通常没有冲突的时候就直接给你合并了,不会把你的代码给覆盖掉</li>
+<li>出现代码覆盖或者丢失的情况:比如A B两人的代码pull 时候的版本都是1,A在本地提交了2,3并且推送到远程了,B 进行修改的时候没有<code>commit</code> 操作,他先自己写了东西,然后 <code>git pull</code> 这个时候 B 本地版本已经到3了,B 在本地版本3的时候改了 A 写过的代码,再进行了<code>git commit &amp;&amp; git push</code> 那么在远程版本中就是4,而且 A 的代码被覆盖了,所以说所有人都要先 commit 再 pull,不然真的会覆盖代码的<strong>经过本人亲自实验，这种情况不会发生代码覆盖问题</strong></li>
+</ol>
+</li>
+<li>两个互相合并的唯一区别就是 A-&gt;B 的时候 B 分支上会产生一个 merge_commit 的信息,这个时候 B 是合并状态而 A 未合并状态,如果现在<strong>没有发生任何改动</strong>执行 B-&gt;A 就直接切换过去了,连 merge_commit 都不会生成了</li>
+</ol>
+<p><strong>这合并的时候发生了什么?</strong></p>
+<p>比如你从一个git log为<code>1,2,3,4,5,6</code>的远程库拉取到了本地, 另一个同事也拉取了同样的代码,而且你的同事先于你提交到远程了, 此时<strong>远程</strong>的版本是<code>1,2,3,4,5,6,7_new,8_new</code>, 而你当前只是<strong>本地</strong>的版本<code>1,2,3,4,5,6,7_local,8_local,9_local</code> 从这里你就能看出你前一部分和<strong>远程</strong>的一样,后一部分和<strong>远程</strong>的不一样, 这个时候你不能正常推送上去的,如果你采取<code>git push origin master --force</code> 那么<strong>远程</strong>的版本就变成了<code>1,2,3,4,5,6,7_local,8_local,9_local</code> 之前你同事推送的<code>7_new,8_new</code>这两次推送被覆盖了,这不是大家想要的情况 因此需要<code>git pull</code>来将<strong>本地</strong>的版本合并成样 <code>1,2,3,4,5,6,7_new,7_local,8_local,8_new,9_local,10_commit_merge</code> 远程和<strong>本地</strong>的排序是按当时 <code>commit</code> 的时间来排的,最后一个<code>10_commit_merge</code>就是你<strong>本地</strong>和<strong>远程</strong>合并的标志,最后你推送到远程仓库的应该也是这个, 因为你们操作的是同一个库始终要保持代码的同步,所以一旦版本库发生改动同一分支下的所有人都要跟着去同步他,因为各开发各的直接往上推 git 还没智能到帮你处理冲突的地步 </p>
 <h3 id="5-克隆远程库到本地"><a href="#5-克隆远程库到本地" class="headerlink" title="5. 克隆远程库到本地"></a>5. 克隆远程库到本地</h3><p>基本语法：<code>git clone 远程地址</code>在远程库获取地址 URL</p>
+<p><del>需要注意的是：远程地址如果是https格式的，任何人都可以克隆。远程地址如果是ssh形式的，只有项目的参与者才可以克隆。</del>这条说的不对</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/bed545d3938cde21c57c8f86ffcfffd.png" srcset="/img/loading.gif" lazyload></p>
 <p>克隆完成后，查看远程仓库别名，和分支对应情况：</p>
 <p><img src="https://raw.githubusercontent.com/JYGQAQ/PicGo/master/d75f5d9b4a0889a1f2aca32b259d3c3.png" srcset="/img/loading.gif" lazyload></p>
